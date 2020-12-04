@@ -38,7 +38,7 @@ nafs = nafs.drop_duplicates(keep="first")
 
 
 # FDS
-df = pd.read_csv("extract-stats-detail.csv",dtype=str)
+df = pd.read_csv("data/extract-stats-detail.csv",dtype=str)
 df['week'] = df['date_paiement'].apply(lambda x: datetime.strptime(x,'%Y-%m-%d').isocalendar()[1])
 df.montant = df.montant.astype(float)
 df.nombre = df.nombre.astype(float)
@@ -46,15 +46,15 @@ df['monday_date'] = df['week'].apply(lambda x: datetime.strftime(Week(2020, x).m
 
 
 # PGE
-pge = pd.read_csv('pge-data.csv',dtype=str)
+pge = pd.read_csv('data/pge-data.csv',dtype=str)
 pge.montant = pge.montant.astype(float)
 
 # Report
-report = pd.read_csv('report-data.csv',dtype=str)
+report = pd.read_csv('data/report-data.csv',dtype=str)
 report.montant = report.montant.astype(float)
 
 # CPSTI
-cpsti = pd.read_csv('cpsti-data.csv',dtype=str)
+cpsti = pd.read_csv('data/cpsti-data.csv',dtype=str)
 cpsti.montant = cpsti.montant.astype(float)
 
 
